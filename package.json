@@ -1,0 +1,16 @@
+{
+  "name": "rol-summit-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ROL SUMMIT LTD storefront: static site on Netlify with Stripe products and Stripe Hosted Checkout",
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "stripe": "~22.6.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

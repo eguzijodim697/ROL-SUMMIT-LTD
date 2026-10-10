@@ -1,0 +1,56 @@
+# ROL SUMMIT LTD — Netlify configuration
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  node_bundler = "esbuild"
+
+# The site is published from the project root, so keep source and config files private.
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/node_modules/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package-lock.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Security headers for static pages (function responses set their own headers in code).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
